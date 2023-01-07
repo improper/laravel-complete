@@ -46,3 +46,9 @@ tooling:
   build:
     service: node
     cmd: npm run build
+  npm:
+    service: node
+    cmd: npm
+  artisan:
+    service: appserver
+    cmd: php artisan
