@@ -1,0 +1,6 @@
+name: my-custom-app-name
+
+proxy:
+  appserver_nginx:
+    - my-custom-app-url.lndo.site
+

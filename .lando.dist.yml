@@ -1,0 +1,48 @@
+##
+# Create a `.lando.local.yml`1 to override the `name:` value
+name: my-laravel-app
+
+##
+# Recipe Documentation: https://docs.lando.dev/laravel/getting-started.html
+recipe: laravel
+config:
+  php: '8.1'
+  composer_version: '2.2.12'
+  via: nginx
+  webroot: public
+  database: mariadb:10.6
+  cache: redis
+  xdebug: true
+
+##
+# Additional Servicas
+services:
+  node: # Enable Vite usage within Lando
+    type: node:16
+    scanner: false
+    ports:
+      - 3009:3009
+    build:
+      - npm install
+
+  mailhog: # Add MailHog service
+    type: mailhog:v1.0.0
+    portforward: false
+    hogfrom: # Attach MailHog to the services that will utilize it
+      - appserver
+
+##
+# Provide custom routing for mailhog
+proxy:
+  mailhog:
+    - mail.lndo.site
+
+##
+# Add some shortcuts to our container tools
+tooling:
+  dev:
+    service: node
+    cmd: npm run dev
+  build:
+    service: node
+    cmd: npm run build
