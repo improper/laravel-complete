@@ -52,3 +52,6 @@ tooling:
   artisan:
     service: appserver
     cmd: php artisan
+  pest:
+    service: appserver
+    cmd: ./vendor/bin/pest
