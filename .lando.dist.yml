@@ -42,7 +42,11 @@ proxy:
 tooling:
   dev:
     service: node
-    cmd: npm run dev
+    cmd: |
+      echo "Optionally, Consider setting APP_URL to match your Lando environment within \`.env\`\n\n"
+      sleep 1
+      APP_URL=$(node -r dotenv/config -e "console.log(typeof process.env.APP_URL === 'undefined' && JSON.parse(process.env.LANDO_INFO).appserver_nginx.urls.filter(url => url.startsWith('https') && url.endsWith('lndo.site/')).at(-1) || process.env.APP_URL)") \
+      npm run dev
   build:
     service: node
     cmd: npm run build
