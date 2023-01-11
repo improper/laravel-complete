@@ -31,6 +31,21 @@ services:
     hogfrom: # Attach MailHog to the services that will utilize it
       - appserver
 
+  chromedriver: # For Laravel Dusk
+    type: compose
+    #    app_mount: delegate
+    services:
+      image: robcherry/docker-chromedriver:latest
+      # Required. See Below
+      command: /usr/local/bin/supervisord -c /etc/supervisord.conf
+      expose:
+        - '4444'
+      environment:
+        CHROMEDRIVER_WHITELISTED_IPS: ""
+        CHROMEDRIVER_URL_BASE: "/wd/hub"
+      security_opt:
+        - seccomp:unconfined
+
 ##
 # Provide custom routing for mailhog
 proxy:
@@ -59,3 +74,6 @@ tooling:
   pest:
     service: appserver
     cmd: ./vendor/bin/pest
+  dusk:
+    service: appserver
+    cmd: php artisan dusk
