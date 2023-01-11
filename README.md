@@ -1,5 +1,17 @@
 # Bootstrapped Laravel 9
-This project is based on a fresh install of Laravel 9 and ships with Livewire, Pest, Jetstream, Mailhog, Vite, and Lando, as well as pre-configured Laravel Dusk for browser automation testing, for a ready-to-go development environment.
+
+This project is based on a fresh install of Laravel 9. Each solution included below is preconfigured to work with Laravel!
+
+**For a ready-to-go dev environment, includes:**
+ * **Lando**: including Redis (for session & cache) and MariaDB
+ * **Livewire**
+ * **Laravel Dusk**: preconfigured to work with Lando!
+ * **Pest**
+   * Ships with Dusk compatibility
+   * Ships with Livewire example tests
+ * **Jetstream**
+ * **Mailhog**: Laravel-connected out-of-the-box
+ * **Vite**: preconfigured to work with hot reloading on Lando!
 
 > **What is Lando?**
 >
@@ -8,7 +20,9 @@ This project is based on a fresh install of Laravel 9 and ships with Livewire, P
 It's suggested that you read this entire document, but head to [Getting Started](#getting_started) if you're ready for that.
 
 ## Preconfigured Tools
-This project comes with Livewire, Pest, Jetstream, Mailhog, Vite, Lando, and Laravel Dusk already preconfigured and ready to use. However, before using Dusk, make sure that your `APP_URL` in the `.env` file is set to your Lando app URL.
+This project comes with Livewire, Pest, Jetstream, Mailhog, Vite, Lando, and Laravel Dusk preconfigured and ready to use with Pest & Lando. 
+
+> **Note:** Before using Dusk, make sure that your `APP_URL` in the `.env` file is set to your Lando app URL.
 
 ## Testing
 An example Livewire test is provided. You can run it with `lando pest --filter` livewire.

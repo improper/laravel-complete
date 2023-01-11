@@ -76,4 +76,4 @@ tooling:
     cmd: ./vendor/bin/pest
   dusk:
     service: appserver
-    cmd: php artisan dusk
+    cmd: php artisan pest:dusk
