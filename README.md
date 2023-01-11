@@ -5,7 +5,9 @@ This project is based on a fresh install of Laravel 9. Each solution included be
 **For a ready-to-go dev environment, includes:**
  * **Lando**: including Redis (for session & cache) and MariaDB
  * **Livewire**
- * **Laravel Dusk**: preconfigured to work with Lando!
+ * **Laravel Dusk**:
+   * Write your Dusk tests using Pest
+   * Completely containerized within Lando
  * **Pest**
    * Ships with Dusk compatibility
    * Ships with Livewire example tests
