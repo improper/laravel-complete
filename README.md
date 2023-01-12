@@ -33,7 +33,7 @@ An example Livewire test is provided. You can run it with `lando pest --filter` 
 You can launch Vite with hot reloading by using lando npm run dev or lando dev.
 
 ## Command Shortcuts
-You can access the `composer`, `pest`, `artisan`, `php`, and `npm` and `dusk` commands by running `lando {command}`. You can add more command shortcuts by adding a `tooling:` section to the `.lando.local.yml`. See `.lando.dist.yml` file for the defaults.
+You can access the `composer`, `pest`, `artisan`, `php`, `npm` and `dusk` commands by running `lando {command}`. You can add more command shortcuts by adding a `tooling:` section to the `.lando.local.yml`. See `.lando.dist.yml` file for the defaults.
 
 ## Further Documentation
 For more information on using Laravel, Livewire, Pest, Jetstream, Mailhog, Vite, Dusk, and Lando, please refer to their respective documentation:
