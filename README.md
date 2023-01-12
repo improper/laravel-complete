@@ -1,4 +1,4 @@
-# Bootstrapped Laravel 9
+# Laravel Complete - A Bootstrapped Laravel 9
 
 This project is based on a fresh install of Laravel 9. Each solution included below is preconfigured to work with Laravel!
 
