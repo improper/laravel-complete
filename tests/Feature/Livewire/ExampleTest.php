@@ -5,6 +5,10 @@ namespace Tests\Feature\Livewire;
 use App\Http\Livewire\Who;
 use App\Models\User;
 use Livewire\Livewire;
+use Illuminate\Foundation\Testing\RefreshDatabase;
+
+uses(RefreshDatabase::class);
+
 
 it('can render', function() {
 
