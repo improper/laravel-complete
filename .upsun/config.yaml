@@ -1,6 +1,6 @@
 # Complete list of all available properties: https://docs.upsun.com/create-apps/app-reference.html
 applications:
-  laravel-complete:
+  tester:
     # Application source code directory
     source:
       root: "/"
@@ -20,22 +20,22 @@ applications:
     # More information: https://docs.upsun.com/create-apps/app-reference.html#relationships
     relationships:
       mariadb: "mariadb:mysql"
-      redis_persistent: "redis_persistent:redis"
+      redis-persistent: "redis-persistent:redis"
       
 
     # Mounts define directories that are writable after the build is complete.
     # More information: https://docs.upsun.com/create-apps/app-reference.html#mounts
     mounts:
       "/.config":
-        source: "local"
+        source: "storage"
         source_path: "config"
         
       "bootstrap/cache":
-        source: "local"
+        source: "storage"
         source_path: "cache"
         
       "storage":
-        source: "local"
+        source: "storage"
         source_path: "storage"
         
       
@@ -100,7 +100,6 @@ applications:
       nodejs:
         n: "*"
         npx: "*"
-        sharp: "*"
       php:
         composer/composer: "^2"
 
@@ -112,7 +111,7 @@ applications:
       build: |
         set -eux
         composer --no-ansi --no-interaction install --no-progress --prefer-dist --optimize-autoloader --no-dev
-        n auto
+        n auto || n lts
         hash -r
         npm i
         npm run build
@@ -145,14 +144,14 @@ applications:
 # The services of the project.
 #
 # Each service listed will be deployed
-# to power your Upsun (Staging) project.
+# to power your Upsun project.
 # More information: https://docs.upsun.com/add-services.html
 # Full list of available services: https://docs.upsun.com/add-services.html#available-services
 services:
   mariadb:
-    type: mariadb:10.6 # All available versions are: 10.6, 10.5, 10.4, 10.3
+    type: mariadb:11.0 # All available versions are: 11.0, 10.11, 10.6, 10.5, 10.4, 10.3
 
-  redis_persistent:
+  redis-persistent:
     type: redis-persistent:7.0 # All available versions are: 7.0, 6.2
 
   
@@ -160,12 +159,12 @@ services:
 # The routes of the project.
 #
 # Each route describes how an incoming URL is going
-# to be processed by Upsun (Staging).
+# to be processed by Upsun.
 # More information: https://docs.upsun.com/define-routes.html
 routes:
   "https://{default}/":
     type: upstream
-    upstream: "laravel-complete:http"
+    upstream: "tester:http"
   # A basic redirect definition
   # More information: https://docs.upsun.com/define-routes.html#basic-redirect-definition
   "https://www.{default}":
